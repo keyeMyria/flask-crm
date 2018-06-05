@@ -129,11 +129,12 @@ class CRM(object):
         @param module_type: type of the module, e.g: models, views, graphql...
         """
         base_dir = '{}/'.format(os.path.dirname(os.path.dirname(__file__)))
-        print(" ----------- ========= {} ".format(base_dir))
+        # print(" ---- ---- --- ==== ===== {} ".format(base_dir))
         for root, _, files in os.walk(os.path.dirname(__file__)):
             for file_ in files:
                 if file_ != '{}.py'.format(module_type):
                     continue
+                # print(" ---- === {} {} ".format(base_dir, files))
                 package = root.replace(base_dir, '').replace('/', '.')
                 import_module('{}.{}'.format(package, module_type))
 
@@ -230,6 +231,13 @@ class CRM(object):
         CRM._load_modules(module_type='types')
         CRM._load_modules(module_type='queries')
         CRM._load_modules(module_type='mutations')
+
+        query = type("Query", tuple(BaseQuery.__subclasses__()), {})
+        print(" ------ ===== ------ ==== {} ".format(dir(query)))
+        print(" ------ ===== ------ ==== {} ".format(query))
+        print(" ------ ===== ------ ==== {} type ".format(type))
+        print(" ------ ===== ------ ==== {} type ".format(BaseQuery.__subclasses__()))
+        print(" ------ ===== ------ ==== {} ".format(type(query)))
 
         schema = graphene.Schema(
 
