@@ -129,6 +129,7 @@ class CRM(object):
         @param module_type: type of the module, e.g: models, views, graphql...
         """
         base_dir = '{}/'.format(os.path.dirname(os.path.dirname(__file__)))
+        print(" ----------- ========= {} ".format(base_dir))
         for root, _, files in os.walk(os.path.dirname(__file__)):
             for file_ in files:
                 if file_ != '{}.py'.format(module_type):

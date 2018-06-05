@@ -47,6 +47,7 @@ SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI')
 ########################
 
 # Load env settings into globals
-settings_module = 'crm.settings_%s' % os.getenv("ENV", 'dev')
+# settings_module = 'crm.settings_%s' % os.getenv("ENV", 'dev')
+settings_module = 'crm.settings_dev'
 env_settings = import_module(settings_module).__dict__
 globals().update(env_settings)

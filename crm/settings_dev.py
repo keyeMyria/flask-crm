@@ -23,5 +23,5 @@ CACHE_BACKEND_URI = 'memory://'
 
 DATA_DIR = 'data'
 
-SUPPORT_EMAIL = os.getenv('SUPPORT_EMAIL', None)
-SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY", None)
+SUPPORT_EMAIL = os.getenv('SUPPORT_EMAIL', None) or "email@email.com"
+SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY", None) or "dddddddddd"
